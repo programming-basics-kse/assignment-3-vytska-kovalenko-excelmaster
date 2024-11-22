@@ -89,10 +89,14 @@ def overall_statistics(filepath, countries):
     return results
 
 def main():
+
     parser = argparse.ArgumentParser('Processing Olympic medalists data')
     parser.add_argument('filepath', help='Path to the data')
-    parser.add_argument('--medals',nargs=2, required=True, help='Enter country (Team or NOC) and year')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--medals',nargs=2, required=True, help='Enter country (Team or NOC) and year')
+    group.add_argument('--overall', nargs='+', help='Enter one or more countries to get their overall')
     parser.add_argument('--output', help='Argument is optional: it is saving results to file')
+
 
     args = parser.parse_args()
     country, year = args.medals
