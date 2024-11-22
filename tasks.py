@@ -25,6 +25,7 @@ def filter_data(country,year):
 
 print(filter_data('CHN', 1992))
 
+
 def print_medalists():
 
     pass
