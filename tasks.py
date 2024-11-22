@@ -16,19 +16,54 @@ def filter_data(country,year):
     NOC = header.index('NOC')
     YEAR = header.index('Year')
     filtered = []
-    year =str(year)
+    year = str(year)
     for row in rows:
         if row[COUNTRY]==country or row[NOC]==country:
             if row[YEAR]==year:
                 filtered.append(row)
     return filtered
 
-print(filter_data('CHN', 1992))
+def valid_medal(medal):
+    if medal == 'Gold' or medal == 'Silver' or medal =='Bronze':
+        return True
+    return False
+def valid_country(country):
+    rows, header = get_data()
+    COUNTRY = header.index('Team')
+    NOC = header.index('NOC')
+    for row in rows:
+        if country.lower() in row[COUNTRY].lower() or country.lower() == row[NOC].lower():
+            return True
+    return False
 
+def valid_year(year):
+    rows, header = get_data()
+    YEAR = header.index('Year')
+    for row in rows:
+        if str(year) == row[YEAR]:
+            return True
+    return False
 
-def print_medalists():
+def print_medalists(country, year):
+    if not valid_country(country):
+        return f"{country} country does not exist"
+    if not valid_year(year):
+        return f"In {year} year Olympics did not took place"
+    rows, header = get_data()
+    filtered_rows = filter_data(country, year)
+    NAME = header.index('Name')
+    EVENT = header.index('Event')
+    MEDAL = header.index('Medal')
+    results = []
+    for row in filtered_rows[:10]:
+        if valid_medal(row[MEDAL]):
+            results.append(f'{row[NAME]} - {row[EVENT]} - {row[MEDAL]}')
+    if results:
+        return f"{len(results)} first results: {'\n'.join(results)}"
+    else:
+        return f"{country} didn't get anything in {year}"
 
-    pass
+print(print_medalists('Poland', 1952))
 
 
 def main():
