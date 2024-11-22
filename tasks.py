@@ -23,8 +23,10 @@ def filter_data(country,year):
                 filtered.append(row)
     return filtered
 
-print(filter_data('USA', 1965))
+print(filter_data('CHN', 1992))
+
 def print_medalists():
+
     pass
 
 
