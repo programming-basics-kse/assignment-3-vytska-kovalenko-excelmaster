@@ -10,8 +10,20 @@ def get_data():
             rows.append(row)
     return rows, header
 
-def filter_data():
-    pass
+def filter_data(country,year):
+    rows, header = get_data()
+    COUNTRY = header.index('Team')
+    NOC = header.index('NOC')
+    YEAR = header.index('Year')
+    filtered = []
+    year =str(year)
+    for row in rows:
+        if row[COUNTRY]==country or row[NOC]==country:
+            if row[YEAR]==year:
+                filtered.append(row)
+    return filtered
+
+print(filter_data('USA', 1965))
 def print_medalists():
     pass
 
