@@ -1,8 +1,8 @@
+import argparse
 import csv
-import sys
 
-def get_data():
-    with open('data.tsv') as file:
+def get_data(filepath):
+    with open(filepath) as file:
         reader = csv.reader(file, delimiter='\t')
         header = next(reader)
         rows  = []
@@ -10,8 +10,7 @@ def get_data():
             rows.append(row)
     return rows, header
 
-def filter_data(country,year):
-    rows, header = get_data()
+def filter_data(rows, header,country, year):
     COUNTRY = header.index('Team')
     NOC = header.index('NOC')
     YEAR = header.index('Year')
@@ -27,8 +26,8 @@ def valid_medal(medal):
     if medal == 'Gold' or medal == 'Silver' or medal =='Bronze':
         return True
     return False
-def valid_country(country):
-    rows, header = get_data()
+
+def valid_country(rows, header, country):
     COUNTRY = header.index('Team')
     NOC = header.index('NOC')
     for row in rows:
@@ -36,21 +35,20 @@ def valid_country(country):
             return True
     return False
 
-def valid_year(year):
-    rows, header = get_data()
+def valid_year(rows, header, year):
     YEAR = header.index('Year')
     for row in rows:
         if str(year) == row[YEAR]:
             return True
     return False
 
-def print_medalists(country, year):
-    if not valid_country(country):
+def print_medalists(filepath, country, year):
+    rows, header = get_data(filepath)
+    if not valid_country(rows, header, country):
         return f"{country} country does not exist"
-    if not valid_year(year):
+    if not valid_year(rows, header, year):
         return f"In {year} year Olympics did not took place"
-    rows, header = get_data()
-    filtered_rows = filter_data(country, year)
+    filtered_rows = filter_data(rows, header, country, year)
     NAME = header.index('Name')
     EVENT = header.index('Event')
     MEDAL = header.index('Medal')
@@ -59,26 +57,33 @@ def print_medalists(country, year):
         if valid_medal(row[MEDAL]):
             results.append(f'{row[NAME]} - {row[EVENT]} - {row[MEDAL]}')
     if results:
-        return f"{len(results)} first results: {'\n'.join(results)}"
+        return f"{len(results)} first results for {country} in {year}: {'\n'.join(results)}"
     else:
         return f"{country} didn't get anything in {year}"
 
-print(print_medalists('Poland', 1952))
-
 
 def main():
-    if len(sys.argv)<5:
-        print('Invalid number of arguments')
+    parser = argparse.ArgumentParser('Processing Olympic medalists data')
+    parser.add_argument('filepath', help='Path to the data')
+    parser.add_argument('--medals',nargs=2, required=True, help='Enter country (Team or NOC) and year')
+    parser.add_argument('--output', help='Argument is optional: it is saving results to file')
 
-    filepath = sys.argv[1]
-    medal_flag = sys.argv[2]
-    country = sys.argv[3]
-    year = sys.argv[4]
-    if len(sys.argv)>5 and sys.argv[5]=='--output':
-        output_file = sys.argv[6]
+    args = parser.parse_args()
+    country, year = args.medals
+    year = int(year)
+    result = print_medalists(args.filepath, country, year)
+    print(result)
+    if args.output:
+        with open(args.output, 'w') as file:
+            file.write(result)
+        print(f"Results saved to '{args.output}'")
 
-    if medal_flag != '--medals':
-        print('Second argument should be "--medals"')
+if __name__ == '__main__':
+    main()
+
+
+
+
 
 
 
