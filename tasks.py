@@ -61,6 +61,32 @@ def print_medalists(filepath, country, year):
     else:
         return f"{country} didn't get anything in {year}"
 
+def overall_statistics(filepath, countries):
+    rows, header = get_data(filepath)
+    COUNTRY = header.index('Team')
+    NOC = header.index('NOC')
+    YEAR = header.index('Year')
+    MEDAL = header.index('Medal')
+    results = {}
+    for country in countries:
+        countries_data = []
+
+        for row in rows:
+            if row[COUNTRY] == country or row[NOC] == country:
+                countries_data.append(row)
+
+        medals_by_year = {}
+        for row in countries_data:
+            if valid_medal(row[MEDAL]):
+                year = row[YEAR]
+                medals_by_year.setdefault(year, 0)
+                medals_by_year[year] += 1
+
+        if medals_by_year:
+            best_year = max(medals_by_year, key=medals_by_year.get)
+            max_medals = medals_by_year[best_year]
+            results[country] = f"{best_year} with {max_medals} medals"
+    return results
 
 def main():
     parser = argparse.ArgumentParser('Processing Olympic medalists data')
