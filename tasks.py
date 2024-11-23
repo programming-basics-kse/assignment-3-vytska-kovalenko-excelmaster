@@ -52,10 +52,15 @@ def print_medalists(filepath, country, year):
     NAME = header.index('Name')
     EVENT = header.index('Event')
     MEDAL = header.index('Medal')
+    unique_medalists = set()
     results = []
-    for row in filtered_rows[:10]:
-        if valid_medal(row[MEDAL]):
+    for row in filtered_rows:
+        medalist = row[NAME]
+        if medalist not in unique_medalists and valid_medal(row[MEDAL]):
+            unique_medalists.add(medalist)
             results.append(f'{row[NAME]} - {row[EVENT]} - {row[MEDAL]}')
+            if len(results)==10:
+                break
     if results:
         return f"{len(results)} first results for {country} in {year}: {'\n'.join(results)}"
     else:
@@ -118,11 +123,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
