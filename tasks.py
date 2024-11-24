@@ -1,5 +1,5 @@
 
-from validation import valid_medal, valid_year, valid_country
+from validation import valid_medal, valid_year, valid_country, valid_age
 from parser import created_parser
 from countries import COUNTRIES_SET
 from work_with_data import get_data, filter_data
@@ -52,15 +52,15 @@ def overall_statistics(filepath, countries, countries_set):
             max_medals = medals_by_year[best_year]
             results[country] = f"{best_year} with {max_medals} medals"
         else:
-            results[country] = "No medals won."
+            results[country] = "No medals won"
     return results
 
 def top_player(filepath, genders:list, categories:list):
     age_ranges = {
-        "1": (18, 25),
-        "2": (25, 35),
-        "3": (35, 50),
-        "4": (50, float('inf'))
+        '1': (18, 25),
+        '2':(25, 35),
+        '3':(35,50),
+        '4':(50, float('inf'))
     }
     rows, header = get_data(filepath)
     NAME = header.index('Name')
@@ -83,15 +83,11 @@ def top_player(filepath, genders:list, categories:list):
             age_min, age_max = age_ranges[category]
             player_medals = {}
             for row in rows:
-                if gender == row[GENDER] and valid_medal(row[MEDAL]):
-                    try:
-                        age = int(row[AGE])
-                        if age_min <= age < age_max:
-                            player = row[NAME]
-                            player_medals.setdefault(player, 0)
-                            player_medals[player] += 1
-                    except ValueError:
-                        continue
+                age = valid_age(row[AGE], age_min, age_max)
+                if gender == row[GENDER] and valid_medal(row[MEDAL]) and age:
+                    player = row[NAME]
+                    player_medals.setdefault(player, 0)
+                    player_medals[player] += 1
             if player_medals:
                 best_player = max(player_medals, key=player_medals.get)
                 max_medals = player_medals[best_player]

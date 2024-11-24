@@ -12,3 +12,13 @@ def valid_year(rows, header, year):
         if str(year) == row[YEAR]:
             return True
     return False
+
+def valid_age(age, age_min, age_max):
+    try:
+        age = int(age)
+        if age_min<= age < age_max:
+            return age
+        return None
+    except ValueError:
+        return None
+
