@@ -41,6 +41,12 @@ def valid_year(rows, header, year):
         if str(year) == row[YEAR]:
             return True
     return False
+def valid_age(age):
+    try:
+        age = int(age)
+        return age
+    except ValueError:
+        return False
 
 def print_medalists(filepath, country, year, countries_set):
     rows, header = get_data(filepath)
@@ -99,6 +105,48 @@ def overall_statistics(filepath, countries, countries_set):
             results[country] = "No medals won."
     return results
 
+def top_player(filepath, genders:list, categories:list):
+    age_ranges = {
+        "1": (18, 25),
+        "2": (25, 35),
+        "3": (35, 50),
+        "4": (50, float('inf'))
+    }
+    rows, header = get_data(filepath)
+    NAME = header.index('Name')
+    GENDER = header.index('Sex')
+    AGE = header.index('Age')
+    MEDAL = header.index('Medal')
+
+    if  not all(genders):
+        print('This gender does not exist. "M" for male and "F" for female')
+        return
+    result = []
+    for gender in genders:
+        for category in categories:
+            if category not in age_ranges:
+                print(f'Sorry, invalid age category {category}')
+                return
+            age_min, age_max = age_ranges[category]
+            player_medals = {}
+            for row in rows:
+                if gender == row[GENDER] and valid_medal(row[MEDAL]):
+                    try:
+                        age = valid_age(row[AGE])
+                        if age_min <= age < age_max:
+                            player = row[NAME]
+                            player_medals.setdefault(player, 0)
+                            player_medals[player] += 1
+                    except ValueError:
+                        continue
+            if player_medals:
+                best_player = max(player_medals, key=player_medals.get)
+                max_medals = player_medals[best_player]
+                result.append(f"{best_player} with {max_medals} medals is the best in category {category} ({age_min}-{age_max} years)")
+            else:
+                result.append(f"No medals won in category {category} ({age_min}-{age_max} years)")
+    return '\n'.join(result)
+
 def main():
 
     parser = argparse.ArgumentParser('Processing Olympic medalists data')
@@ -106,6 +154,7 @@ def main():
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--medals', nargs=2, help='Enter country (Team or NOC) and year')
     group.add_argument('--overall', nargs='+', help='Enter one or more countries to get their overall')
+    group.add_argument('--top', nargs='+', help='Find top players by gender and age category')
     parser.add_argument('--output', help='Argument is optional: it is saving results to file')
 
     args = parser.parse_args()
@@ -152,6 +201,10 @@ def main():
         for country, info in result_dict.items():
             result += country + ": " + str(info) + "\n"
         result = result.strip()
+    elif args.top:
+        gender = args.top[:2]
+        categories = list(map(str, args.top[2:]))
+        result = top_player(args.filepath, gender, categories)
 
     print(result)
 
