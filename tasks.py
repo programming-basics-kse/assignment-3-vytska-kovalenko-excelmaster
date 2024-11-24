@@ -41,12 +41,6 @@ def valid_year(rows, header, year):
         if str(year) == row[YEAR]:
             return True
     return False
-def valid_age(age):
-    try:
-        age = int(age)
-        return age
-    except ValueError:
-        return False
 
 def print_medalists(filepath, country, year, countries_set):
     rows, header = get_data(filepath)
@@ -135,7 +129,7 @@ def top_player(filepath, genders:list, categories:list):
             for row in rows:
                 if gender == row[GENDER] and valid_medal(row[MEDAL]):
                     try:
-                        age = valid_age(row[AGE])
+                        age = int(row[AGE])
                         if age_min <= age < age_max:
                             player = row[NAME]
                             player_medals.setdefault(player, 0)
