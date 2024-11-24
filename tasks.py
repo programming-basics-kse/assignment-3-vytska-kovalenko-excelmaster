@@ -1,31 +1,11 @@
-from validation import valid_medal, valid_year
+
+from validation import valid_medal, valid_year, valid_country
 from parser import created_parser
 from countries import COUNTRIES_SET
-
-def get_data(filepath):
-    with open(filepath) as file:
-        header = file.readline().strip().split('\t')
-        rows  = []
-        for line in file:
-            row = line.strip().split('\t')
-            rows.append(row)
-    return rows, header
-
-def filter_data(rows, header,country, year):
-    COUNTRY = header.index('Team')
-    NOC = header.index('NOC')
-    YEAR = header.index('Year')
-    filtered = []
-    year = str(year)
-    for row in rows:
-        if row[COUNTRY]==country or row[NOC]==country:
-            if row[YEAR]==year:
-                filtered.append(row)
-    return filtered
+from work_with_data import get_data, filter_data
 
 def print_medalists(filepath, country, year, countries_set):
     rows, header = get_data(filepath)
-    COUNTRY = header.index('Team')
     NOC = header.index('NOC')
     if country not in countries_set and not any(row[NOC] == country for row in rows):
         return f"{country} is not a valid country."
@@ -38,9 +18,8 @@ def print_medalists(filepath, country, year, countries_set):
     unique_medalists = set()
     results = []
     for row in filtered_rows:
-        medalist = row[NAME]
-        if medalist not in unique_medalists and valid_medal(row[MEDAL]):
-            unique_medalists.add(medalist)
+        if row[NAME] not in unique_medalists and valid_medal(row[MEDAL]):
+            unique_medalists.add(row[NAME])
             results.append(f'{row[NAME]} - {row[EVENT]} - {row[MEDAL]}')
             if len(results)==10:
                 break
@@ -56,18 +35,14 @@ def overall_statistics(filepath, countries, countries_set):
     YEAR = header.index('Year')
     MEDAL = header.index('Medal')
     NAME = header.index('Name')
-    valid_countries = []
+    valid_countries = [country for country in countries if valid_country(country, rows, countries_set, NOC)]
     unique_medalists = set()
-    for country in countries:
-        if country in countries_set or any(row[NOC] == country for row in rows):
-            valid_countries.append(country)
     results = {}
     for country in valid_countries:
         medals_by_year = {}
         for row in rows:
-            medalist = row[NAME]
             if row[COUNTRY] == country or row[NOC] == country:
-                if valid_medal(row[MEDAL]) and medalist not in unique_medalists:
+                if valid_medal(row[MEDAL]) and row[NAME] not in unique_medalists:
                     year = row[YEAR]
                     medals_by_year.setdefault(year, 0)
                     medals_by_year[year] += 1

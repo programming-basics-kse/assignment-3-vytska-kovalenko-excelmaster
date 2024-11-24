@@ -3,13 +3,8 @@ def valid_medal(medal):
         return True
     return False
 
-def valid_country(rows, header, country):
-    COUNTRY = header.index('Team')
-    NOC = header.index('NOC')
-    for row in rows:
-        if country.lower() in row[COUNTRY].lower() or country.lower() == row[NOC].lower():
-            return True
-    return False
+def valid_country(country, rows, countries_set, NOC):
+    return country in countries_set or any(row[NOC] == country for row in rows)
 
 def valid_year(rows, header, year):
     YEAR = header.index('Year')
