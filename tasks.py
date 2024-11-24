@@ -1,12 +1,12 @@
-import argparse
-import csv
+from validation import valid_medal, valid_country, valid_year
+from parser import created_parser
 
 def get_data(filepath):
     with open(filepath) as file:
-        reader = csv.reader(file, delimiter='\t')
-        header = next(reader)
+        header = file.readline().strip().split('\t')
         rows  = []
-        for row in reader:
+        for line in file:
+            row = line.strip().split('\t')
             rows.append(row)
     return rows, header
 
@@ -21,26 +21,6 @@ def filter_data(rows, header,country, year):
             if row[YEAR]==year:
                 filtered.append(row)
     return filtered
-
-def valid_medal(medal):
-    if medal == 'Gold' or medal == 'Silver' or medal =='Bronze':
-        return True
-    return False
-
-def valid_country(rows, header, country):
-    COUNTRY = header.index('Team')
-    NOC = header.index('NOC')
-    for row in rows:
-        if country.lower() in row[COUNTRY].lower() or country.lower() == row[NOC].lower():
-            return True
-    return False
-
-def valid_year(rows, header, year):
-    YEAR = header.index('Year')
-    for row in rows:
-        if str(year) == row[YEAR]:
-            return True
-    return False
 
 def print_medalists(filepath, country, year, countries_set):
     rows, header = get_data(filepath)
@@ -145,15 +125,7 @@ def top_player(filepath, genders:list, categories:list):
     return '\n'.join(result)
 
 def main():
-
-    parser = argparse.ArgumentParser('Processing Olympic medalists data')
-    parser.add_argument('filepath', help='Path to the data')
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument('--medals', nargs=2, help='Enter country (Team or NOC) and year')
-    group.add_argument('--overall', nargs='+', help='Enter one or more countries to get their overall')
-    group.add_argument('--top', nargs='+', help='Find top players by genders and age category')
-    parser.add_argument('--output', help='Argument is optional: it is saving results to file')
-
+    parser = created_parser()
     args = parser.parse_args()
     countries_set = {'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda',
                      'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas',
