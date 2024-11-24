@@ -201,11 +201,9 @@ def main():
     elif args.top:
         if len(args.top) == 2:
             genders = args.top[0]
+            categories = list(map(str, args.top[1:]))
         else:
             genders = args.top[:2]
-        if len(args.top) == 2:
-            categories = list(map(str, args.top[1]))
-        else:
             categories = list(map(str, args.top[2:]))
         result = top_player(args.filepath, genders, categories)
 
