@@ -118,9 +118,12 @@ def top_player(filepath, genders:list, categories:list):
     AGE = header.index('Age')
     MEDAL = header.index('Medal')
 
-    if  not all(genders):
-        print('This gender does not exist. "M" for male and "F" for female')
-        return
+    valid_genders = ['M', 'F']
+    for gender in genders:
+        if not gender in valid_genders:
+            print(f'Invalid gender {gender} input. "M" for male and "F" for female')
+            return
+
     result = []
     for gender in genders:
         for category in categories:
@@ -154,7 +157,7 @@ def main():
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--medals', nargs=2, help='Enter country (Team or NOC) and year')
     group.add_argument('--overall', nargs='+', help='Enter one or more countries to get their overall')
-    group.add_argument('--top', nargs='+', help='Find top players by gender and age category')
+    group.add_argument('--top', nargs='+', help='Find top players by genders and age category')
     parser.add_argument('--output', help='Argument is optional: it is saving results to file')
 
     args = parser.parse_args()
@@ -202,9 +205,15 @@ def main():
             result += country + ": " + str(info) + "\n"
         result = result.strip()
     elif args.top:
-        gender = args.top[:2]
-        categories = list(map(str, args.top[2:]))
-        result = top_player(args.filepath, gender, categories)
+        if len(args.top) == 2:
+            genders = args.top[0]
+        else:
+            genders = args.top[:2]
+        if len(args.top) == 2:
+            categories = list(map(str, args.top[1]))
+        else:
+            categories = list(map(str, args.top[2:]))
+        result = top_player(args.filepath, genders, categories)
 
     print(result)
 
