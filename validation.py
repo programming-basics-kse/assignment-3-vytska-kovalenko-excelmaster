@@ -22,3 +22,8 @@ def valid_age(age, age_min, age_max):
     except ValueError:
         return None
 
+def valid_gender(gender, valid_genders=['M', 'F']):
+    if gender not in valid_genders:
+        print(f'Invalid gender {gender} input. "M" for male and "F" for female')
+        return False
+    return True

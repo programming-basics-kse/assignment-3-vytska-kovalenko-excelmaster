@@ -1,5 +1,5 @@
 
-from validation import valid_medal, valid_year, valid_country, valid_age
+from validation import valid_medal, valid_year, valid_country, valid_age, valid_gender
 from parser import created_parser
 from countries import COUNTRIES_SET
 from work_with_data import get_data, filter_data
@@ -68,10 +68,8 @@ def top_player(filepath, genders:list, categories:list):
     AGE = header.index('Age')
     MEDAL = header.index('Medal')
 
-    valid_genders = ['M', 'F']
     for gender in genders:
-        if not gender in valid_genders:
-            print(f'Invalid gender {gender} input. "M" for male and "F" for female')
+        if not valid_gender(gender):
             return
 
     result = []
