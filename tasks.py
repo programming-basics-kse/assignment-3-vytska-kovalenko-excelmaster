@@ -199,9 +199,9 @@ def main():
             result += country + ": " + str(info) + "\n"
         result = result.strip()
     elif args.top:
-        if len(args.top) == 2:
+        if len(args.top) >= 2 and args.top[1] not in ['M', 'F']:
             genders = args.top[0]
-            categories = list(map(str, args.top[1:]))
+            categories = list(map(str, args.top[len(genders):]))
         else:
             genders = args.top[:2]
             categories = list(map(str, args.top[2:]))
