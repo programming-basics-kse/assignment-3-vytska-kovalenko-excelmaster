@@ -13,7 +13,8 @@ def top_player(filepath, genders:list, categories:list):
     GENDER = header.index('Sex')
     AGE = header.index('Age')
     MEDAL = header.index('Medal')
-
+    ID = header.index('ID')
+    unique_ids = set()
     for gender in genders:
         if not valid_gender(gender):
             return
@@ -28,7 +29,7 @@ def top_player(filepath, genders:list, categories:list):
             player_medals = {}
             for row in rows:
                 age = valid_age(row[AGE], age_min, age_max)
-                if gender == row[GENDER] and valid_medal(row[MEDAL]) and age:
+                if gender == row[GENDER] and valid_medal(row[MEDAL]) and age and row[ID] not in unique_ids:
                     player = row[NAME]
                     player_medals.setdefault(player, 0)
                     player_medals[player] += 1
