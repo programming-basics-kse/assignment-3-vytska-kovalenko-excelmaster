@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/eCpvRij9)
 ###### Практична робота №3
 ## Робота з текстовими даними
 
@@ -6,7 +7,7 @@
 
 ## Загальний опис
 
-Це перша робота, яку ви викорнуєте не індивідуально, а в команді. Перед початком виконання прочитайте [правила виконання групових робіт](./group_rules.md)
+Це перша робота, яку ви викорнуєте не індивідуально, а в команді. Перед початком виконання прочитайте [правила виконання групових робіт](group_rules.md)
 
 В інтернеті існує достатньо багато джерел, де можна знайти підготовлені для аналізу набори даних ("датасети", datasets). В цій роботі ми будемо працювати зі справжньою базою даних [олімпійських атлетів за останні 120 років](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) з сайту [Kaggle](https://www.kaggle.com/). Дані імпотровані в [гуглдок](https://docs.google.com/spreadsheets/d/1yuxIxtLh998CgoMA8d1ar7V-JCSpQAxepeZN5JJ5fxU/edit?usp=sharing).
 

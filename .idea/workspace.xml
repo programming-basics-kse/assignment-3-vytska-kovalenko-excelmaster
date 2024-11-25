@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="44c8a2c8-9ffe-4357-a053-d47a016acdd7" name="Changes" comment="added tsv file">
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/additional_task_top.py" beforeDir="false" afterPath="$PROJECT_DIR$/additional_task_top.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/countries.py" beforeDir="false" afterPath="$PROJECT_DIR$/countries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/david_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/david_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_with_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/work_with_data.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nvytska&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/programming-basics-kse/assignment-3-vytska-kovalenko-excelmaster.git&quot;,
+    &quot;accountId&quot;: &quot;080e5386-486e-438d-abab-e4cc76debcba&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2pCT9oNlLYCiMwWP2yAkjVYalrt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.david_main.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.tasks.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "application.passwordSafe"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/additional_files" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-98f27166c754-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.21829.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="44c8a2c8-9ffe-4357-a053-d47a016acdd7" name="Changes" comment="" />
+      <created>1732268909333</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732268909333</updated>
+    </task>
+    <task id="LOCAL-00001" summary="added tsv file">
+      <option name="closed" value="true" />
+      <created>1732269105013</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732269105013</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added .gitignore">
+      <option name="closed" value="true" />
+      <created>1732275112246</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732275112246</updated>
+    </task>
+    <task id="LOCAL-00003" summary="functions for 1st task">
+      <option name="closed" value="true" />
+      <created>1732275939569</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732275939569</updated>
+    </task>
+    <task id="LOCAL-00004" summary="functions for 1st task">
+      <option name="closed" value="true" />
+      <created>1732275974697</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732275974697</updated>
+    </task>
+    <task id="LOCAL-00005" summary="improved functions">
+      <option name="closed" value="true" />
+      <created>1732283754385</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732283754385</updated>
+    </task>
+    <task id="LOCAL-00006" summary="completed 1st task">
+      <option name="closed" value="true" />
+      <created>1732299694261</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732299694261</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added func for task 3">
+      <option name="closed" value="true" />
+      <created>1732308384720</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732308384720</updated>
+    </task>
+    <task id="LOCAL-00008" summary="parse for 3rd task">
+      <option name="closed" value="true" />
+      <created>1732310572609</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732310572609</updated>
+    </task>
+    <task id="LOCAL-00009" summary="edited main func by 3rd task">
+      <option name="closed" value="true" />
+      <created>1732348622007</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1732348622007</updated>
+    </task>
+    <task id="LOCAL-00010" summary="validated to unique medalists">
+      <option name="closed" value="true" />
+      <created>1732351896730</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1732351896730</updated>
+    </task>
+    <task id="LOCAL-00011" summary="validated to existed countries">
+      <option name="closed" value="true" />
+      <created>1732402033818</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1732402033818</updated>
+    </task>
+    <task id="LOCAL-00012" summary="additional task(top function)">
+      <option name="closed" value="true" />
+      <created>1732447127107</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1732447127107</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fixed function and validate it">
+      <option name="closed" value="true" />
+      <created>1732448566644</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1732448566644</updated>
+    </task>
+    <task id="LOCAL-00014" summary="edited validation">
+      <option name="closed" value="true" />
+      <created>1732449649204</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1732449649204</updated>
+    </task>
+    <task id="LOCAL-00015" summary="edited validation for other">
+      <option name="closed" value="true" />
+      <created>1732452415166</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732452415166</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fixed main func for top">
+      <option name="closed" value="true" />
+      <created>1732452905863</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732452905863</updated>
+    </task>
+    <task id="LOCAL-00017" summary="polished additional">
+      <option name="closed" value="true" />
+      <created>1732457421076</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732457421076</updated>
+    </task>
+    <task id="LOCAL-00018" summary="orgaized code by files">
+      <option name="closed" value="true" />
+      <created>1732469450784</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1732469450784</updated>
+    </task>
+    <task id="LOCAL-00019" summary="optimization">
+      <option name="closed" value="true" />
+      <created>1732470202027</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732470202027</updated>
+    </task>
+    <task id="LOCAL-00020" summary="optimization2.0">
+      <option name="closed" value="true" />
+      <created>1732472260383</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732472260383</updated>
+    </task>
+    <task id="LOCAL-00021" summary="edited and optimizated funcs">
+      <option name="closed" value="true" />
+      <created>1732473108361</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732473108361</updated>
+    </task>
+    <task id="LOCAL-00022" summary="optimizated validation">
+      <option name="closed" value="true" />
+      <created>1732473754281</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1732473754281</updated>
+    </task>
+    <task id="LOCAL-00023" summary="replaced additional task to another file">
+      <option name="closed" value="true" />
+      <created>1732536069356</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1732536069356</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="temporary nvm" />
+    <MESSAGE value="added .gitignore" />
+    <MESSAGE value="functions for 1st task" />
+    <MESSAGE value="improved functions" />
+    <MESSAGE value="completed 1st task" />
+    <MESSAGE value="added func for task 3" />
+    <MESSAGE value="parse for 3rd task" />
+    <MESSAGE value="edited main func by 3rd task" />
+    <MESSAGE value="validated to unique medalists" />
+    <MESSAGE value="validated to existed countries" />
+    <MESSAGE value="additional task(top function)" />
+    <MESSAGE value="fixed function and validate it" />
+    <MESSAGE value="edited validation" />
+    <MESSAGE value="edited validation for other" />
+    <MESSAGE value="fixed main func for top" />
+    <MESSAGE value="polished additional" />
+    <MESSAGE value="orgaized code by files" />
+    <MESSAGE value="optimization" />
+    <MESSAGE value="optimization2.0" />
+    <MESSAGE value="edited and optimizated funcs" />
+    <MESSAGE value="optimizated validation" />
+    <MESSAGE value="replaced additional task to another file" />
+    <MESSAGE value="added tsv file" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tsv file" />
+  </component>
+</project>
