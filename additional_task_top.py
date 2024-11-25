@@ -1,8 +1,10 @@
 from david_main import get_data
 import argparse
+from parser import *
 
 parser = argparse.ArgumentParser('tasks "top"')
-parser.add_argument('--top', type=str, help='task')
+parser.add_argument('--top_dav', help='Find top players by genders and age category. Made by David')
+
 
 def top():
     ages = {
@@ -11,7 +13,7 @@ def top():
         '3' : (35, 50),
         '4' : (50, 999)
     }
-
+    input = parser.parse_args().top_dav
     rows, header = get_data()
     NAME = header.index('Name')
     GENDER = header.index('Sex')
@@ -19,7 +21,6 @@ def top():
     MEDAL = header.index('Medal')
     ID = header.index('ID')
     id_list = []
-    input = 'M F 1 2'.split(' ')
     genders = [item for item in input if item in ['M', 'F']]
     age_groups = [item for item in input if item in ages]
     for gender in genders:
@@ -45,4 +46,4 @@ def top():
 
 
             print(f'Output data : {gender}, {age_group}. Name : {name}, Amount of medals : {medals}')
-top()
+

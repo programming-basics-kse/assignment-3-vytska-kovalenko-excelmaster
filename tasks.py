@@ -1,8 +1,8 @@
 
-from validation import valid_medal, valid_year, valid_country, valid_age, valid_gender
+from validation import valid_medal, valid_year, valid_country
 from parser import created_parser
 from countries import COUNTRIES_SET
-from work_with_data import get_data, filter_data
+from work_with_data import get_data
 from additional_task_vytska import top_player
 
 def print_medalists(filepath, country, year, countries_set):
@@ -12,13 +12,12 @@ def print_medalists(filepath, country, year, countries_set):
         return f"{country} is not a valid country."
     if not valid_year(rows, header, year):
         return f"In {year} year Olympics did not took place"
-    filtered_rows = filter_data(rows, header, country, year)
     NAME = header.index('Name')
     EVENT = header.index('Event')
     MEDAL = header.index('Medal')
     unique_medalists = set()
     results = []
-    for row in filtered_rows:
+    for row in rows:
         if row[NAME] not in unique_medalists and valid_medal(row[MEDAL]):
             unique_medalists.add(row[NAME])
             results.append(f'{row[NAME]} - {row[EVENT]} - {row[MEDAL]}')
